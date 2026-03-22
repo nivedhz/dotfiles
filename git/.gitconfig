@@ -1,0 +1,11 @@
+[user]
+	name = Nivedh E R
+	email = nivedher12@gmail.com
+[init]
+	deaultBranch = main
+	defaultBranch = main
+[credential]
+	helper = cache
+
+[core]
+	editor = nvim
