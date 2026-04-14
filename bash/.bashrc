@@ -1,6 +1,6 @@
 export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 # If not running interactively, don't do anything (leave this at the top of this file)
 [[ $- != *i* ]] && return
@@ -16,10 +16,6 @@ cd ~
 
 # SSH Agent Auto Start
 eval $(keychain --eval --quiet id_ed25519)
-
-# NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 # User defined functions
 # Fuzzy cd
