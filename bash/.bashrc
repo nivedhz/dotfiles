@@ -18,7 +18,8 @@ cd ~
 eval $(keychain --eval --quiet id_ed25519)
 
 # NVM
-. "$HOME/.local/share/../bin/env"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 # User defined functions
 # Fuzzy cd
