@@ -14,8 +14,8 @@ alias home='cd ~'
 
 # LISTING
 alias l='eza'
-alias ll='eza -lah'
-alias la='eza -a'
+alias ll='eza -a'
+alias la='eza -lah'
 alias lt='eza -T'
 
 # SAFETY
