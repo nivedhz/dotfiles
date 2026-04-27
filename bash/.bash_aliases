@@ -20,6 +20,7 @@ alias lt='eza -T --git-ignore'
 
 # SAFETY
 alias rm='rm -i'
+alias rmf='rm -rf'
 alias cp='cp -i'
 alias mv='mv -i'
 alias copy='wl-copy'
