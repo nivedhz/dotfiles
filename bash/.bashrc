@@ -103,7 +103,7 @@ tw() {
 
   # run startup commands
   tmux send-keys -t "$name":1 "n" C-m
-  tmux send-keys -t "$name":3 "npm run start" C-m
+  tmux send-keys -t "$name":3 "npm run dev" C-m
 
   # go to core
   tmux select-window -t "$name":1
