@@ -13,10 +13,10 @@ alias ....='cd ../../..'
 alias home='cd ~'
 
 # LISTING
-alias l='eza'
-alias ll='eza -a'
-alias la='eza -lah'
-alias lt='eza -T'
+alias l='eza --git-ignore'
+alias ll='eza -a --git-ignore'
+alias la='eza -lah --git-ignore'
+alias lt='eza -T --git-ignore'
 
 # SAFETY
 alias rm='rm -i'

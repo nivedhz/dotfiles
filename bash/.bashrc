@@ -37,7 +37,7 @@ f() {
 }
 
 # Fuzzy nvim
-ffv() {
+fv() {
   local file
 
   file=$(fd --type f --hidden \
@@ -99,11 +99,11 @@ tw() {
   # create session + windows
   tmux new-session -d -s "$name" -c "$dir" -n core
   tmux new-window -t "$name":2 -c "$dir" -n terminal
-  tmux new-window -t "$name":3 -c "$dir" -n live-server
+  tmux new-window -t "$name":3 -c "$dir" -n live-website
 
   # run startup commands
   tmux send-keys -t "$name":1 "n" C-m
-  tmux send-keys -t "$name":3 "live" C-m
+  tmux send-keys -t "$name":3 "npm run build && npm start" C-m
 
   # go to core
   tmux select-window -t "$name":1
