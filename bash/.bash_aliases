@@ -47,7 +47,7 @@ alias gs='git status'
 alias ga='git add '
 alias gc='git commit -m'
 alias gp='git push'
-alias gl='git log --oneline --graph --decorate'
+alias gl='git log --oneline --graph --decorate --all'
 alias gck='git branch | fzf | xargs git checkout'
 alias gr='git remote'
 
