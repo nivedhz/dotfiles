@@ -54,6 +54,8 @@ alias gr='git remote'
 # DEV
 alias st='speedtest'
 alias py='python3'
+alias venv='python -m venv .venv'
+alias activate='source .venv/bin/activate'
 alias n='nvim'
 alias v='vim .'
 alias live='npx live-server'
