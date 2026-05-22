@@ -102,7 +102,7 @@ tw() {
   tmux new-window -t "$name":3 -c "$dir" -n live-website
 
   # run startup commands
-  tmux send-keys -t "$name":1 "n" C-m
+  tmux send-keys -t "$name":1 "nvim ." C-m
   tmux send-keys -t "$name":3 "npm run dev" C-m
 
   # go to core
