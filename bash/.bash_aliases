@@ -6,6 +6,7 @@ alias m='cliamp ~/Music'
 alias rel='source ~/.bashrc'
 alias yd='yt-dlp'
 alias yda='yt-dlp -x --audio-format mp3 --audio-quality 0 --js-runtime node -P ~/Music'
+alias ffe='fastfetch'
 
 # NAVIGATION
 alias ..='cd ..'
@@ -54,6 +55,9 @@ alias gr='git remote'
 # DEV
 alias st='speedtest'
 alias py='python3'
+alias cr='cargo run'
+alias cc='cargo check'
+alias cb='cargo build'
 alias venv='python -m venv .venv'
 alias activate='source .venv/bin/activate'
 alias n='nvim'

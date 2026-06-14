@@ -7,6 +7,9 @@ return {
         ["<S-Tab>"] = { "select_prev", "fallback" },
         ["<CR>"] = { "accept", "fallback" },
       },
+      sources = {
+        default = { "snippets", "lsp", "path", "buffer" },
+      },
     },
   },
 }

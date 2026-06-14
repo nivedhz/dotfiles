@@ -19,6 +19,12 @@ fi
 # SSH Agent Auto Start
 eval $(keychain --eval --quiet id_ed25519)
 
+# Use Nvim for Man pages
+export MANPAGER="nvim +Man!"
+
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+
 # User defined functions
 # Fuzzy cd
 f() {
@@ -67,11 +73,37 @@ unalias tw 2>/dev/null
 
 # Default tmux
 t() {
-  local name
+  local name dir
+  dir="$(pwd)"
 
-  read -p "Session Name: " name
+  if [ -n "$1" ]; then
+    name="$1"
+  else
+    read -p "Session Name: " name
+  fi
 
-  tmux new-session -s "$name" -c "$PWD"
+  if tmux has-session -t "$name" 2>/dev/null; then
+    if [ -n "$TMUX" ]; then
+      tmux switch-client -t "$name"
+    else
+      tmux attach-session -t "$name"
+    fi
+    return
+  fi
+
+  tmux new-session -d -s "$name" -c "$PWD" -n core
+  tmux new-window -t "$name":2 -c "$dir" -n terminal
+
+  tmux send-keys -t "$name":1 "nvim ." C-m
+  # go to core
+  tmux select-window -t "$name":1
+
+  # attach / switch
+  if [ -n "$TMUX" ]; then
+    tmux switch-client -t "$name"
+  else
+    tmux attach-session -t "$name"
+  fi
 }
 
 # Web Dev tmux
@@ -115,3 +147,4 @@ tw() {
     tmux attach-session -t "$name"
   fi
 }
+. "$HOME/.cargo/env"
