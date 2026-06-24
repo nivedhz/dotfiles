@@ -51,6 +51,7 @@ alias gp='git push'
 alias gl='git log --oneline --graph --decorate --all'
 alias gck='git branch | fzf | xargs git checkout'
 alias gr='git remote'
+alias gb='git branch'
 
 # DEV
 alias st='speedtest'

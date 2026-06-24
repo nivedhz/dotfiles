@@ -43,8 +43,34 @@ f() {
 }
 
 # Fuzzy nvim
+# Frequent Vim: Shows ONLY used files, sorted by most used
 fv() {
   local file
+  local history_file="$HOME/.fv_history"
+
+  touch "$history_file"
+
+  file=$(
+    tail -n 2000 "$history_file" |
+      awk '{count[$0]++} END {for (path in count) print count[path] "\t" path}' |
+      sort -rn |
+      cut -f2- |
+      while IFS= read -r f; do [ -f "$f" ] && echo "$f"; done |
+      fzf --preview 'bat --style=numbers --color=always {}' \
+        --preview-window=right:60%
+  )
+
+  if [ -n "$file" ]; then
+    realpath "$file" >>"$history_file"
+    nvim "$file"
+  fi
+}
+bind -x '"\C-n": fv'
+
+# Find Nvim All: Use this when opening a file for the FIRST time
+fva() {
+  local file
+  local history_file="$HOME/.fv_history"
 
   file=$(fd --type f --hidden \
     --exclude .git \
@@ -55,7 +81,11 @@ fv() {
     fzf --preview 'bat --style=numbers --color=always {}' \
       --preview-window=right:60%)
 
-  [ -n "$file" ] && nvim "$file"
+  if [ -n "$file" ]; then
+    # Add newly discovered file to the history
+    realpath "$file" >>"$history_file"
+    nvim "$file"
+  fi
 }
 
 # Fuzzy zoxide

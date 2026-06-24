@@ -3,6 +3,6 @@ return {
   opts = {
     scroll = {
       enabled = false, -- Disable scrolling animations
-    }
+    },
   },
 }
