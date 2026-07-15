@@ -177,4 +177,22 @@ tw() {
     tmux attach-session -t "$name"
   fi
 }
+cl() {
+  total=0
+
+  while IFS='|' read -r name commits; do
+    printf "%-30s %s\n" "$name" "$commits"
+    total=$((total + commits))
+  done < <(
+    for dir in */; do
+      if [ -d "$dir/.git" ]; then
+        commits=$(git -C "$dir" rev-list --count HEAD 2>/dev/null)
+        echo "${dir%/}|$commits"
+      fi
+    done | sort -t'|' -k2 -nr
+  )
+
+  echo
+  echo "Total commits: $total"
+}
 . "$HOME/.cargo/env"
