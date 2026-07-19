@@ -196,3 +196,4 @@ cl() {
   echo "Total commits: $total"
 }
 . "$HOME/.cargo/env"
+export DATABASE_PASSWORD="1909413591nive"
