@@ -160,11 +160,13 @@ tw() {
 
   # create session + windows
   tmux new-session -d -s "$name" -c "$dir" -n core
-  tmux new-window -t "$name":2 -c "$dir" -n terminal
+  tmux new-window -t "$name":2 -c "$dir" -n dbui
   tmux new-window -t "$name":3 -c "$dir" -n live-website
+  tmux new-window -t "$name":4 -c "$dir" -n terminal
 
   # run startup commands
   tmux send-keys -t "$name":1 "nvim ." C-m
+  tmux send-keys -t "$name":2 "pgcli" C-m
   tmux send-keys -t "$name":3 "npm run dev" C-m
 
   # go to core
