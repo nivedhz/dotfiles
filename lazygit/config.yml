@@ -1,0 +1,25 @@
+customCommands:
+  - key: "C"
+    context: "files"
+    description: "Conventional Commit"
+    prompts:
+      - type: "menu"
+        title: "Commit type"
+        key: "Type"
+        options:
+          - value: "feat"
+          - value: "fix"
+          - value: "docs"
+          - value: "style"
+          - value: "refactor"
+          - value: "test"
+          - value: "chore"
+      - type: "input"
+        title: "Scope"
+        key: "Scope"
+      - type: "input"
+        title: "Short summary"
+        key: "Summary"
+    command: |
+      git commit -m "{{.Form.Type}}({{.Form.Scope}}): {{.Form.Summary}}"
+    output: terminal
