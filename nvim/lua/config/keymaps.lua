@@ -21,3 +21,13 @@ vim.keymap.set("n", "<leader>gE", function()
   vim.diagnostic.jump({ count = -1 })
 end)
 vim.keymap.set("n", "<C-o>", "<C-w>", { remap = true, desc = "Use Ctrl + O as the window prefix" })
+
+local builtin = require("telescope.builtin")
+local themes = require("telescope.themes")
+
+vim.keymap.set("n", "<leader>sf", function()
+  builtin.current_buffer_fuzzy_find(themes.get_dropdown({
+    previewer = false,
+    winblend = 10,
+  }))
+end, { desc = "Search current buffer" })
