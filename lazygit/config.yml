@@ -22,4 +22,3 @@ customCommands:
         key: "Summary"
     command: |
       git commit -m "{{.Form.Type}}({{.Form.Scope}}): {{.Form.Summary}}"
-    output: terminal
