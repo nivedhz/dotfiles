@@ -16,9 +16,6 @@ return {
         emmet_language_server = {
           filetypes = { "css", "html", "javascriptreact", "less", "sass", "scss", "typescriptreact", "ejs" },
         },
-        emmet_ls = {
-          filetypes = { "css", "html", "javascriptreact", "less", "sass", "scss", "typescriptreact", "ejs" },
-        },
       },
     },
   },
